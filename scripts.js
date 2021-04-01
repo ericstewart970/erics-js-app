@@ -15,7 +15,13 @@ for (let i=0; i < pokemon.length; i++){
   if (pokemon[i].height > 1.5){
     document.write(pokemon[i].name + " Wow! That's Big!");
   }else if (pokemon[i].height < 1.5) {
-    document.write(pokemon[i].name);
+    document.write(pokemon[i].name + '<br>');
   }
-  document.write(pokemon[i].height);
+  document.write(pokemon[i].height + '<br>');
 }
+
+let nameList = ['Balbasure', 'Caterpie', 'Seel'];
+
+nameList.forEach(function(name)  {
+  document.write(name);
+});
