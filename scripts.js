@@ -1,24 +1,43 @@
 // for loop for Exercize 1.3
 
-let pokemon = [
-    {name: "balbasure",
-    height: 0.7},
-    {name: "caterpie",
-    height: 1.2},
-    {name: "Seel",
-    height: 1.9}
-    ];
+var pokemonRespsitory = (function() {
+var pokemonList = [
+    {
+      name: "balbasure",
+      height: 0.7,
+      types: ['grass', 'poison']
+    },
+    {
+      name: "caterpie",
+      height: 1.2,
+      types: ['Shield-dust', 'Run-away']
+    },
+    {
+      name: "Seel",
+      height: 1.9,
+      types: ['Hydration', 'Ice-body']
+    }
+  ];
 
-
-
-for (let i=0; i < pokemon.length; i++){
-  if (pokemon[i].height > 1.5){
-    document.write(pokemon[i].name + " Wow! That's Big!");
-  }else if (pokemon[i].height < 1.5) {
-    document.write(pokemon[i].name + '<br>');
-  }
-  document.write(pokemon[i].height + '<br>');
+function getAll() {
+  return pokemonList;
 }
+
+function add(pokemon) {
+  pokemonList.push(pokemon);
+}
+
+return {
+  getAll: getAll,
+  add: add
+ };
+})();
+
+console.log ( pokemonRespsitory.getAll() ); 
+
+
+
+
 
 let nameList = ['Balbasure', 'Caterpie', 'Seel'];
 
