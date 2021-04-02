@@ -1,6 +1,6 @@
 // for loop for Exercize 1.3
 
-var pokemonRespsitory = (function() {
+var pokemonRepository = (function () {
 var pokemonList = [
     {
       name: "balbasure",
@@ -32,15 +32,16 @@ return {
   add: add
  };
 })();
-
-console.log ( pokemonRespsitory.getAll() ); 
-
-
-
+console.log ( pokemonRepository.getAll() );
+pokemonRepository.add({ name: 'Fearow' });
+console.log(pokemonRepository.getAll());
 
 
-let nameList = ['Balbasure', 'Caterpie', 'Seel'];
 
-nameList.forEach(function(name)  {
+
+
+let pokemonList = ['Balbasure', 'Caterpie', 'Seel'];
+
+pokemonList.forEach(function(name)  {
   document.write(name);
 });
