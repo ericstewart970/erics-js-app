@@ -1,4 +1,4 @@
-// for loop for Exercize 1.3
+// for loop for Exercize 1.5
 
 var pokemonRepository = (function () {
 var pokemonList = [
@@ -28,13 +28,18 @@ function add(pokemon) {
 }
 
 return {
-  getAll: getAll,
-  add: add
+  add: add,
+  getAll: getAll
+
  };
 })();
-console.log ( pokemonRepository.getAll() );
-pokemonRepository.add({ name: 'Fearow' });
-console.log(pokemonRepository.getAll());
+{
+console.log ( pokemonRepository.getAll() )};
+
+//added forEach function
+pokemonRepository.getAll().forEach(function(pokemon) {
+  console.log(pokemon)
+})
 
 
 
