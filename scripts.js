@@ -1,3 +1,10 @@
+//practicing innerText with JavaScript
+let container = document.querySelector('.container');
+container.innerHTML = '<button>Click Me</button>';
+console.log(container.innerHTML);
+
+
+
 // for loop for Exercize 1.5
 
 var pokemonRepository = (function () {
@@ -40,13 +47,3 @@ console.log ( pokemonRepository.getAll() )};
 pokemonRepository.getAll().forEach(function(pokemon) {
   console.log(pokemon)
 })
-
-
-
-
-
-let pokemonList = ['Balbasure', 'Caterpie', 'Seel'];
-
-pokemonList.forEach(function(name)  {
-  document.write(name);
-});
