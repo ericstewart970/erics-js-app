@@ -1,49 +1,84 @@
 //practicing innerText with JavaScript
-let container = document.querySelector('.container');
-container.innerHTML = '<button>Click Me</button>';
-console.log(container.innerHTML);
-
+//let container = document.querySelector('.container');
+// let newElement = document.createElement('button') practice
+//let button = document.createElement('button');
+//button.innerText = 'Click Me';
+//container.appendChild(button);
 
 
 // for loop for Exercize 1.5
 
-var pokemonRepository = (function () {
-var pokemonList = [
+let pokemonRepository = (function () {
+let repository = [
     {
       name: "balbasure",
       height: 0.7,
-      types: ['grass', 'poison']
+      types: ["grass", "poison"],
     },
     {
       name: "caterpie",
       height: 1.2,
-      types: ['Shield-dust', 'Run-away']
+      types: ["Shield-dust", "Run-away"],
     },
     {
       name: "Seel",
       height: 1.9,
-      types: ['Hydration', 'Ice-body']
+      types: ["Hydration", "Ice-body"],
     }
   ];
 
-function getAll() {
-  return pokemonList;
+  function add(pokemon) {
+    if (
+      typeof pokemon === "object" &&
+      "name" in pokemon &&
+      "height" in pokemon &&
+      "types" in pokemon
+    ) {
+      repository.push(pokemon);
+    } else {
+      console.log("pokemon is not correct");
+    }
 }
 
-function add(pokemon) {
-  pokemonList.push(pokemon);
+function getAll() {
+  return repository;
 }
+// including addListItem
+function addListItem(pokemon) {
+  //Task  making a ul tag.
+  let pokemonList = document.querySelector(".pokemon-list");
+  //createElement li
+  let listPokemon = document.createElement("li");
+  //createElement button
+  let button = document.createElement("button");
+  button.innerText = pokemon.name;
+  button.classList.add("button-class");
+  listPokemon.appendChild(button);
+  pokemonList.appendChild(listPokemon);
+}
+// showDetails function
+function showDetails(pokemon){
+  console.log(pokemon);
+}
+//adding event listener
+listPokemon.addEventListener("click", function (){
+  showDetails(pokemon);
+});
 
 return {
   add: add,
-  getAll: getAll
-
+  getAll: getAll,
+  // addListItem
+  addListItem: addListItem
  };
 })();
-{
-console.log ( pokemonRepository.getAll() )};
 
-//added forEach function
+pokemonRepository.add({ name: "Pikachu", height: 0.3, types: ["electric"] });
+
+console.log(pokemonRepository.getAll());
+
+//forEach function
 pokemonRepository.getAll().forEach(function(pokemon) {
-  console.log(pokemon)
-})
+//addListItem code
+pokemonRepository.addListItem(pokemon);
+});
