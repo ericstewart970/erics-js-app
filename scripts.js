@@ -55,30 +55,26 @@ function addListItem(pokemon) {
   button.classList.add("button-class");
   listPokemon.appendChild(button);
   pokemonList.appendChild(listPokemon);
-}
-// showDetails function
-function showDetails(pokemon){
-  console.log(pokemon);
-}
-//adding event listener
-listPokemon.addEventListener("click", function (){
-  showDetails(pokemon);
-});
-
+  button.addEventListener('click', function(){
+      showDetails(pokemon));
+  };
 return {
   add: add,
   getAll: getAll,
   // addListItem
   addListItem: addListItem
  };
-})();
-
+} ) ();
 pokemonRepository.add({ name: "Pikachu", height: 0.3, types: ["electric"] });
-
 console.log(pokemonRepository.getAll());
-
 //forEach function
 pokemonRepository.getAll().forEach(function(pokemon) {
 //addListItem code
 pokemonRepository.addListItem(pokemon);
+});
+
+let pokemonList = ['Balbasure', 'Caterpie', 'Seel'];
+
+pokemonList.forEach(function(name)  {
+  document.write(name);
 });
