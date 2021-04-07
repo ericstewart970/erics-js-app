@@ -59,6 +59,7 @@ function addListItem(pokemon) {
   button.addEventListener("click", function(){
       showDetails(pokemon);
   });
+}
 return {
   add: add,
   getAll: getAll,
@@ -66,6 +67,7 @@ return {
   addListItem: addListItem
  };
 } ) ();
+
 pokemonRepository.add({ name: "Pikachu", height: 0.3, types: ["electric"] });
 console.log(pokemonRepository.getAll());
 //forEach function
@@ -74,8 +76,8 @@ pokemonRepository.getAll().forEach(function(pokemon) {
 pokemonRepository.addListItem(pokemon);
 });
 
-let pokemonList = ['Balbasure', 'Caterpie', 'Seel'];
+//let pokemonList = ['Balbasure', 'Caterpie', 'Seel'];
 
-pokemonList.forEach(function(name)  {
-  document.write(name);
-});
+//pokemonList.forEach(function(name)  {
+  //document.write(name);
+//});
