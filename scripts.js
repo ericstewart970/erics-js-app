@@ -58,8 +58,8 @@ function addListItem(pokemon) {
   //adding event listener
   button.addEventListener("click", function(){
     //added showDetails with object (pokemon)
-      button.showDetails = pokemon;
-      console.log('repository')
+      function showDetails(pokemon){
+      console.log(pokemon.name)}
   });
 }
 
