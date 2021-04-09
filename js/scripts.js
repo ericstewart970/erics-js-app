@@ -59,7 +59,7 @@ function addListItem(pokemon) {
   button.addEventListener("click", function(){
     //invoked showDetails
 showDetails(pokemon);
-  });
+});
 }
 //added showDetails with object (pokemon)
   function showDetails(pokemon){
