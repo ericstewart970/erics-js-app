@@ -5,25 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Erics JS App.</title>
      <link href="styles.css" rel="stylesheet" type="text/css" />
+     <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   </head>
   <body>
   <div class='container'></div>
-    <h1>Pokedex</h1>
-    <ul class="pokemon-list"></ul>
-    <!--<div>
-		<select>
-        <option value='1'>First option</option>
-        <option value='2'>Second option</option>
-      </select>
-  </div>
-  </br>
-  </br>
-  <div>
-    <input type='radio' name='age-group' value='child'>
-    <input type='radio' name='age-group' value='adult'>
-    <input type='radio' name='age-group' value='elder'>
+    <h1>Pokedex:</h1>
+      <ul class="pokemon-list"></ul>
+      <br><br>
+    <form id="register-form">
 
-  </div>-->
+      <div class="input-wrapper">
+        <label for="email">E-Mail</label>
+        <input id="email">
+      </div>
+
+      <div class="input-wrapper">
+        <label for="password">Password</label>
+        <input id="password" type="password">
+      </div>
+
+      <button>Register</button>
+
+   </form>
+
+
   <script src="js/promise-polyfill.js"></script>
   <script src="js/fetch-polyfill.js"></script>
     <script src="js/scripts.js"></script>
