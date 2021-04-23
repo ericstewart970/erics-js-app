@@ -101,11 +101,7 @@ return {
  };
 } ) ();
 
-pokemonRepository.loadList().then(function() {
-  pokemonRepository.getAll().forEach(function(pokemon){
-    pokemonRepository.addListItem(pokemon);
-  });
-});
+
 
 // Modal
 
@@ -151,13 +147,19 @@ modalContainer.addEventListener('click', (e) => {
   }
 });
 
+
+
 document.querySelector('#show-modal').addEventListener('click', () => {
   showModal('Modal title', 'This is the model content!');
 });
 
 })();
 
-
+pokemonRepository.loadList().then(function() {
+  pokemonRepository.getAll().forEach(function(pokemon){
+    pokemonRepository.addListItem(pokemon);
+  });
+});
 
 //Form Validation Email & Password
 
