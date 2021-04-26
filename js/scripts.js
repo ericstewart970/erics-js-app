@@ -87,7 +87,51 @@ function showDetails(item) {
 //creating showModal
     showModal(item);
   });
-}
+  // Modal
+
+  let pokemonList = (function () {
+    let modalContainer = document.querySelector('#modal-container');
+    function showModal(title, text) {
+      modalContainer.innerHTML='';
+    let Modal = document.createElement('div');
+      modal.classList.add('modal');
+
+      let closeButtonElement = document.createElement('button');
+      closeButtonElement.classList.add('modal-close');
+      closeButtonElement.innerText = 'Close';
+      closeButtonElement.addEventListener('click', hideModal);
+
+      let titleElement = document.createElement('p');
+      contentElement.innerText = text;
+
+      modal.appendChild(closeButtonElement);
+      modal.appendChild(titleElement);
+      modal.appendChild(contentElement);
+      modalContainer.appendChild(modal);
+
+
+      modalContainer.appendChild.add('is-visible');
+    }
+
+  function hideModal() {
+    modalContainer.classList.remove('is-visible');
+  }
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
+      hideModal();
+    }
+  });
+  modalContainer.addEventListener('click', (e) => {
+    //triggered when clicking inside the modal
+    //want to close if user clickes directly on the overlay
+    let target = e.target;
+    if (target === modalContainer) {
+      hideModal();
+    }
+  });
+
+})();
 
 // addListItem
 //add loadList, loadDetails, & showDetails exercise 1.7
@@ -99,53 +143,10 @@ return {
   loadDetails: loadDetails,
   showDetails: showDetails
  };
-} ) ();
+};
 
 
 
-// Modal
-
-let pokemonList = (function () {
-  let modalContainer = document.querySelector('#modal-container');
-  function showModal(title, text) {
-    modalContainer.innerHTML='';
-  let Modal = document.createElement('div');
-    modal.classList.add('modal');
-
-    let closeButtonElement = document.createElement('button');
-    closeButtonElement.classList.add('modal-close');
-    closeButtonElement.innerText = 'Close';
-    closeButtonElement.addEventListener('click', hideModal);
-
-    let titleElement = document.createElement('p');
-    contentElement.innerText = text;
-
-    modal.appendChild(closeButtonElement);
-    modal.appendChild(titleElement);
-    modal.appendChild(contentElement);
-    modalContainer.appendChild(modal);
-
-
-    modalContainer.appendChild.add('is-visible');
-  }
-
-function hideModal() {
-  modalContainer.classList.remove('is-visible');
-}
-
-window.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
-    hideModal();
-  }
-});
-modalContainer.addEventListener('click', (e) => {
-  //triggered when clicking inside the modal
-  //want to close if user clickes directly on the overlay
-  let target = e.target;
-  if (target === modalContainer) {
-    hideModal();
-  }
-});
 
 
 
