@@ -1,14 +1,7 @@
-//practicing innerText with JavaScript
-//let container = document.querySelector('.container');
-// let newElement = document.createElement('button') practice
-//let button = document.createElement('button');
-//button.innerText = 'Click Me';
-//container.appendChild(button);
-
-
 // for loop for Exercize 1.5
 
 let pokemonRepository = (function () {
+let modalContainer = document.querySelector('#modal-container');
   //Emptied array
   let pokemonList = [];
   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
@@ -19,8 +12,8 @@ let pokemonRepository = (function () {
       typeof pokemon === "object" &&
       "name" in pokemon //&&
       //"detailsUrl" in pokemon
-
-    ) {
+    )
+     {
       pokemonList.push(pokemon);
     } else {
       console.log("pokemon is not correct");
@@ -44,12 +37,11 @@ function addListItem(pokemon) {
   pokemonList.appendChild(listPokemon);
   //adding event listener
   button.addEventListener("click", function(event){
-    //invoked showDetails
-showDetails(pokemon);
-});
+    showDetails(pokemon);
+   });
 }
 
-// load list function
+// load list function from apiUrl
 function loadList() {
   return fetch(apiUrl).then(function (response) {
     return response.json();
@@ -81,79 +73,72 @@ function loadDetails(item) {
   });
 }
 
-//add showDetails function
+//add showDetails function & creating showModal
 function showDetails(item) {
   pokemonRepository.loadDetails(item).then(function () {
-//creating showModal
     showModal(item);
   });
-  // Modal
+}
 
-  let pokemonList = (function () {
-    let modalContainer = document.querySelector('#modal-container');
-    function showModal(title, text) {
-      modalContainer.innerHTML='';
-    let Modal = document.createElement('div');
-      modal.classList.add('modal');
+ // Modal
+   function showModal(title, text) {
+     modalContainer.innerHTML = '';
 
-      let closeButtonElement = document.createElement('button');
-      closeButtonElement.classList.add('modal-close');
-      closeButtonElement.innerText = 'Close';
-      closeButtonElement.addEventListener('click', hideModal);
+   let modal = document.createElement('div');
+     modal.classList.add('modal');
 
-      let titleElement = document.createElement('p');
-      contentElement.innerText = text;
+     let closeButtonElement = document.createElement('button');
+     closeButtonElement.classList.add('modal-close');
+     closeButtonElement.innerText = 'Close';
+     closeButtonElement.addEventListener('click', hideModal);
 
-      modal.appendChild(closeButtonElement);
-      modal.appendChild(titleElement);
-      modal.appendChild(contentElement);
-      modalContainer.appendChild(modal);
+     let titleElement = document.createElement('h1')
+     titleElement.innerText = title;
+
+     let contentElement = document.createElement('p');
+     contentElement.innerText = text;
+
+     modal.appendChild(closeButtonElement);
+     modal.appendChild(titleElement);
+     modal.appendChild(contentElement);
+     modalContainer.appendChild(modal);
 
 
-      modalContainer.appendChild.add('is-visible');
-    }
+     modalContainer.classList.add('is-visible');
+   }
 
-  function hideModal() {
-    modalContainer.classList.remove('is-visible');
-  }
+ function hideModal() {
+   modalContainer.classList.remove('is-visible');
+ }
 
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
-      hideModal();
-    }
-  });
-  modalContainer.addEventListener('click', (e) => {
-    //triggered when clicking inside the modal
-    //want to close if user clickes directly on the overlay
-    let target = e.target;
-    if (target === modalContainer) {
-      hideModal();
-    }
-  });
+ document.querySelector('#show-modal').addEventListener('click', () => {
+   showModal('Modal title', 'This is the modal content!');
+ });
 
-})();
+ window.addEventListener('keydown', (e) => {
+   if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
+     hideModal();
+   }
+ });
+ modalContainer.addEventListener('click', (e) => {
+   //triggered when clicking inside the modal
+   //want to close if user clickes directly on the overlay
+   let target = e.target;
+   if (target === modalContainer) {
+     hideModal();
+   }
+ });
 
-// addListItem
-//add loadList, loadDetails, & showDetails exercise 1.7
-return {
-  add: add,
-  getAll: getAll,
-  addListItem: addListItem,
-  loadList: loadList,
-  loadDetails: loadDetails,
-  showDetails: showDetails
+ // addListItem
+ //add loadList, loadDetails, & showDetails exercise 1.7
+ return {
+   add: add,
+   getAll: getAll,
+   addListItem: addListItem,
+   loadList: loadList,
+   loadDetails: loadDetails,
+   showDetails: showDetails
  };
-};
-
-
-
-
-
-
-document.querySelector('#show-modal').addEventListener('click', () => {
-  showModal('Modal title', 'This is the model content!');
-});
-
 })();
 
 pokemonRepository.loadList().then(function() {
@@ -161,79 +146,3 @@ pokemonRepository.loadList().then(function() {
     pokemonRepository.addListItem(pokemon);
   });
 });
-
-//Form Validation Email & Password
-
-(function() {
-  let form = document.querySelector('#register-form');
-  let emailInput = document.querySelector('#email');
-  let passwordInput = document.querySelector('#password');
-
-  function showErrorMessage(input, message) {
-    let container = input.parentElement; // The .input-wrapper
-
-    // Remove an existing error
-    let error = container.querySelector('.error-message');
-    if (error) {
-      container.removeChild(error);
-    }
-
-    // Now add the error, if the message is not empty
-    if (message) {
-      let error = document.createElement('div');
-      error.classList.add('error-message');
-      error.innerText = message;
-      container.appendChild(error);
-    }
-  }
-
-  function validateEmail() {
-    let value = emailInput.value;
-
-    if (!value) {
-      showErrorMessage(emailInput, 'E-mail is a required field.');
-      return false;
-    }
-
-    if (value.indexOf('@') === -1) {
-      showErrorMessage(emailInput, 'You must enter a valid e-mail address.');
-      return false;
-    }
-
-    showErrorMessage(emailInput, null);
-    return true;
-  }
-
-  function validatePassword() {
-    let value = passwordInput.value;
-
-    if (!value) {
-      showErrorMessage(passwordInput, 'Password is a required field.');
-      return false;
-    }
-
-    if (value.length < 8) {
-      showErrorMessage(passwordInput, 'The password needs to be at least 8 characters long.');
-      return false;
-    }
-
-    showErrorMessage(passwordInput, null);
-    return true;
-  }
-
-  function validateForm() {
-    let isValidEmail = validateEmail();
-    let isValidPassword = validatePassword();
-    return isValidEmail && isValidPassword;
-  }
-
-  form.addEventListener('submit', (e) => {
-    e.preventDefault(); // Do not submit to the server
-    if (validateForm()) {
-      alert('Success!');
-    }
-  });
-
-  emailInput.addEventListener('input', validateEmail);
-  passwordInput.addEventListener('input', validatePassword);
-})();

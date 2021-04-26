@@ -1,4 +1,4 @@
-/*new css file*/
+/*new css file pokemone buttons*/
 .button-class {
   background-color: #6B8E23; /*OliveDrab*/
   width:auto;
@@ -121,30 +121,4 @@ body {
 #modal-container.is-visible {
   /* CSS for modal container - add your own desired CSS styles here */
   display: block;
-}
-
-/*Real Time Form Validation Email & Password*/
-
-html,
-body {
-  font-family: arial, sans-serif;
-}
-
-.input-wrapper {
-  margin-bottom: 10px;
-}
-
-label {
-  display: inline-block;
-  min-width: 75px;
-}
-
-.error-message {
-  color: red;
-  font-size: 0.8em;
-}
-
-form {
-  display: grid;
-  place-items: center;
 }
