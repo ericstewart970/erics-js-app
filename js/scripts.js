@@ -1,7 +1,6 @@
 // for loop for Exercize 1.5
 
 let pokemonRepository = (function () {
-let modalContainer = document.querySelector('#modal-container');
   //Emptied array
   let pokemonList = [];
   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
@@ -81,6 +80,8 @@ function showDetails(item) {
 }
 
  // Modal
+
+  let modalContainer = document.querySelector('#modal-container');
    function showModal(title, text) {
      modalContainer.innerHTML = '';
 
@@ -111,10 +112,6 @@ function showDetails(item) {
    modalContainer.classList.remove('is-visible');
  }
 
- document.querySelector('#show-modal').addEventListener('click', () => {
-   showModal('Modal title', 'This is the modal content!');
- });
-
  window.addEventListener('keydown', (e) => {
    if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
      hideModal();
@@ -129,6 +126,10 @@ function showDetails(item) {
    }
  });
 
+ document.querySelector('#modal-container').addEventListener('click', () => {
+   showModal('Pokemon', 'This is the modal content!');
+ });
+ 
  // addListItem
  //add loadList, loadDetails, & showDetails exercise 1.7
  return {
