@@ -82,7 +82,7 @@ function showDetails(pokemon) {
  // Modal
 
   let modalContainer = document.querySelector('#modal-container');
-   function showModal(title, text) {
+   function showModal(pokemon) {
      modalContainer.innerHTML = '';
 
    let modal = document.createElement('div');
@@ -94,10 +94,10 @@ function showDetails(pokemon) {
      closeButtonElement.addEventListener('click', hideModal);
 
      let titleElement = document.createElement('h1')
-     titleElement.innerText = title;
+     titleElement.innerText = pokemon.name;
 
      let contentElement = document.createElement('p');
-     contentElement.innerText = text;
+     contentElement.innerText = pokemon.height;
 
      modal.appendChild(closeButtonElement);
      modal.appendChild(titleElement);
