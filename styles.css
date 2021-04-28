@@ -65,7 +65,7 @@ body {
   font-family: Arial, sans-serif;
 }
 
-#modal-container {
+ #modal-container {
   position: fixed;
   padding: 20px;
   box-sizing: border-box;
@@ -81,7 +81,7 @@ body {
   /* to allow scrolling if the screen is not high enough*/
   overflow: auto;
 
-  /* this is used to center the modal */
+   /*this is used to center the modal */
   display: grid;
   text-align: center;
 }
@@ -120,5 +120,5 @@ body {
 
 #modal-container.is-visible {
   /* CSS for modal container - add your own desired CSS styles here */
-  display: block;
+ display: block;
 }

@@ -73,9 +73,9 @@ function loadDetails(item) {
 }
 
 //add showDetails function & creating showModal
-function showDetails(item) {
-  pokemonRepository.loadDetails(item).then(function () {
-    showModal(item);
+function showDetails(pokemon) {
+  pokemonRepository.loadDetails(pokemon).then(function () {
+    showModal(pokemon);
   });
 }
 
@@ -126,10 +126,7 @@ function showDetails(item) {
    }
  });
 
- document.querySelector('#modal-container').addEventListener('click', () => {
-   showModal('Pokemon', 'This is the modal content!');
- });
- 
+
  // addListItem
  //add loadList, loadDetails, & showDetails exercise 1.7
  return {
