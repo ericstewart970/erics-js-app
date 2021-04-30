@@ -64,9 +64,9 @@ function loadDetails(item) {
   return fetch(url).then(function (response) {
     return response.json();
   }).then(function (details) {
-    item.imageUrl =details.sprites.front_default;
+    item.imageUrl = details.sprites.front_default;
     item.height = details.height;
-    item.types =details.types;
+    item.types = details.types;
   }).catch(function (e){
     console.error(e);
   });
@@ -99,9 +99,13 @@ function showDetails(pokemon) {
      let contentElement = document.createElement('p');
      contentElement.innerText = pokemon.height;
 
+     let imageElement = document.createElement('img');
+     imageElement.src = pokemon.imageUrl;
+
      modal.appendChild(closeButtonElement);
      modal.appendChild(titleElement);
      modal.appendChild(contentElement);
+     modal.appendChild(imageElement);
      modalContainer.appendChild(modal);
 
 
