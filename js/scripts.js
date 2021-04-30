@@ -116,11 +116,13 @@ function showDetails(pokemon) {
    modalContainer.classList.remove('is-visible');
  }
 
+//calling the escape key to close
  window.addEventListener('keydown', (e) => {
    if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
      hideModal();
    }
  });
+
  modalContainer.addEventListener('click', (e) => {
    //triggered when clicking inside the modal
    //want to close if user clickes directly on the overlay
