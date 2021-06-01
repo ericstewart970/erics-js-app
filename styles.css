@@ -1,6 +1,11 @@
+body {
+  background-color: #D3D3D3
+}
+
+
 /*new css file pokemone buttons*/
 .button-class {
-  background-color: #6B8E23; /*OliveDrab*/
+  /* background-color: #6B8E23; /*OliveDrab */
   width:auto;
   min-height: auto;
   border: none;
@@ -19,12 +24,12 @@
   font-weight: 200;
   text-transform: uppercase;
   margin: 4px 4px;
-  -webkit-transition-duration: 0.4s; /* Safari */
+  /* -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
   cursor: pointer;
-  background-color:  #2F4F4F; /* DarkSlateGray*/
-  color: #DCDCDC; /*Gainsboro*/
-  border: 2px solid #4caf50;
+  background-color:  #6A5ACD; /* DarkSlateGray*/
+  /* color: white; /*Gainsboro */
+  border: 2px solid #708090;
 }
 
 
@@ -32,7 +37,7 @@ ul {
     list-style-type: none;
 }
 
-/* Centering the buttons*/
+/* Centering the buttons */
 .pokemon-list {
   max-width: 700px;
   margin: 0 auto;
@@ -58,7 +63,7 @@ h1 {
   text-transform: uppercase;
 }
 
-/* modal css*/
+/* modal css */
 
 html,
 body {
@@ -74,17 +79,17 @@ body {
 #modal-container.is-visible {
   /* CSS for modal container - add your own desired CSS styles here */
  display: block;
- position: fixed;
+ position: absolute;
  padding: 20px;
  box-sizing: border-box;
  top: 0;
  left: 0;
- width: 100%;
+ width: 50%;
  height: 100%;
  background: rgba(0, 0, 0, 0.5);
  /* to show it above other content */
  z-index: 999;
- /* to allow scrolling if the screen is not high enough*/
+ /* to allow scrolling if the screen is not high enough */
  overflow: auto;
  /* this is used to center the modal */
  display: grid;
@@ -96,8 +101,8 @@ body {
   display: inline-block;
   box-sizing: border-box;
   background: #fff;
-  padding: 15px;
-  width: 100%;
+  padding: 150px;
+  width: 75%;
   max-width: 700px;
   text-align: center;
 }
