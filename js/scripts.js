@@ -13,7 +13,7 @@ let pokemonRepository = (function () {
 
      {
       pokemonList.push(pokemon);
-    } else {
+     } else {
       console.log("pokemon is not correct");
     }
 }
@@ -25,9 +25,9 @@ function getAll() {
 function addListItem(pokemon) {
   let pokemonList = $(".pokemon-list");
   let listPokemon = $("<li></li>");
-  let button = $('<button type= "button"
+  let button = $('<button type="button"
   class="button-class" data-toggle="modal"
-  data-target="#exampleModal">' +
+  data-target="#pokemonModal">' +
   pokemon.name +
   '</button>');
 
@@ -107,14 +107,11 @@ function showDetails(pokemon) {
      let imageElement = document.createElement('img');
      imageElement.src = pokemon.imageUrl;
 */
-// $('[data-toggle="modal"]').on('click', function(){
-// let targetSelector = $(this).attr('data-target');
-// $(targetSelector).modal('show');
-// });
+
 
 function showModal(pokemon) {
-  let modalBody = $(".modal-body");
-  let modalTitle = $(".modal-title");
+//  let modalBody = $(".modal-body");
+//  let modalTitle = $(".modal-title");
 //  let modalHeader = $(".modal-header");
 //  modalTitle.empty();
   // modalBody.empty();
@@ -133,9 +130,13 @@ modalTitle.append(nameElement);
 modalBody.append(imageElement);
 modalBody.append(heightElement);
 modalBody.append(weightElement);
-
+$('#pokemonModal').modal('toggle');
 
 }
+$('[data-toggle="modal"]').on('click', function(){
+let targetSelector = $(this).attr('data-target');
+$(targetSelector).modal('show');
+});
 
 /*
      modal.appendChild(closeButtonElement);
