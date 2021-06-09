@@ -27,8 +27,9 @@ function addListItem(pokemon) {
   let listItem = $("<li></li>");
   listItem.addClass('list-group-item-action');
   listGroup.append(listItem);
-  let button = $('<button data-toggle= "modal"
-  data-target= "#pokemonModal"></button>');
+
+  let button = $('<button type="button" class="button-class" data-toggle= "modal"
+  data-target= "#pokemonModal">' + pokemon.name + '</button>');
   button.addClass('btn btn-primary');
   listItem.append(pokemon.name);
   button.on('click', function() {
@@ -71,9 +72,9 @@ function loadDetails(item) {
 
 //add showDetails function & creating showModal
 function showDetails(pokemon) {
-  pokemonRepository.loadDetails(pokemon).then(function () {
-    $(".modal-body").html('');
-    $(".modal-title").html('');
+  loadDetails(pokemon).then(function () {
+    // $(".modal-body").html('');
+    // $(".modal-title").html('');
     showModal(pokemon);
   });
 }
@@ -127,10 +128,10 @@ modalBody.append(weightElement);
 $('#pokemonModal').modal('toggle');
 
 }
-$('[data-toggle="modal"]').on('click', function(){
-let targetSelector = $(this).attr('data-target');
-$(targetSelector).modal('show');
-});
+// $('[data-toggle="modal"]').on('click', function(){
+// let targetSelector = $(this).attr('data-target');
+// $(targetSelector).modal('show');
+// });
 
 
      // modal.appendChild(closeButtonElement);
