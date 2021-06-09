@@ -23,24 +23,18 @@ function getAll() {
 }
 // creat pokemon-list and button
 function addListItem(pokemon) {
-  let pokemonList = $(".pokemon-list");
-  let listPokemon = $("<li></li>");
-  let button = $('<button type="button"
-  class="button-class" data-toggle="modal"
-  data-target="#pokemonModal">' +
-  pokemon.name +
-  '</button>');
-
-  listPokemon.appendChild(button);
-  pokemonList.appendChild(listPokemon);
-  //adding event listener
-  //button.addEventListener("click", function(event){
-  //  showDetails(pokemon);
-  // });
-  button.click(function(event) {
+  let listGroup = $(".pokemon-list");
+  let listItem = $("<li></li>");
+  listItem.addClass('list-group-item-action');
+  listGroup.append(listItem);
+  let button = $('<button data-toggle= "modal"
+  data-target= "#pokemonModal"></button>');
+  button.addClass('btn btn-primary');
+  listItem.append(pokemon.name);
+  button.on('click', function() {
     showDetails(pokemon);
-  })
-}
+  });
+
 
 // load list function from apiUrl
 function loadList() {
@@ -110,11 +104,11 @@ function showDetails(pokemon) {
 
 
 function showModal(pokemon) {
-//  let modalBody = $(".modal-body");
-//  let modalTitle = $(".modal-title");
-//  let modalHeader = $(".modal-header");
-//  modalTitle.empty();
-  // modalBody.empty();
+  let modalBody = $(".modal-body");
+  let modalTitle = $(".modal-title");
+  let modalHeader = $(".modal-header");
+  modalTitle.empty();
+  modalBody.empty();
 
   // creating element for name in modal content
   let nameElement = $("<h1>" + pokemon.name + "</h1>");
@@ -138,37 +132,37 @@ let targetSelector = $(this).attr('data-target');
 $(targetSelector).modal('show');
 });
 
-/*
-     modal.appendChild(closeButtonElement);
-     modal.appendChild(titleElement);
-     modal.appendChild(contentElement);
-     modal.appendChild(imageElement);
-     modalContainer.appendChild(modal);
+
+     // modal.appendChild(closeButtonElement);
+     // modal.appendChild(titleElement);
+     // modal.appendChild(contentElement);
+     // modal.appendChild(imageElement);
+     // modalContainer.appendChild(modal);
 
 
-     modalContainer.classList.add('is-visible');
-   }
+     // modalContainer.classList.add('is-visible');
+   // }
 
- function hideModal() {
-   modalContainer.classList.remove('is-visible');
- }
+ // function hideModal() {
+   // modalContainer.classList.remove('is-visible');
+ // }
 
 //calling the escape key to close
- window.addEventListener('keydown', (e) => {
-   if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
-     hideModal();
-   }
- });
+ // window.addEventListener('keydown', (e) => {
+   // if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
+     // hideModal();
+   // }
+ // });
 
- modalContainer.addEventListener('click', (e) => {
+ // modalContainer.addEventListener('click', (e) => {
    //triggered when clicking inside the modal
    //want to close if user clickes directly on the overlay
-   let target = e.target;
-   if (target === modalContainer) {
-     hideModal();
-   }
- });
-*/
+   // let target = e.target;
+   // if (target === modalContainer) {
+     // hideModal();
+   // }
+ // });
+
 
  // addListItem
  //add loadList, loadDetails, & showDetails exercise 1.7
