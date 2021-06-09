@@ -25,17 +25,18 @@ function getAll() {
 function addListItem(pokemon) {
   let listGroup = $(".pokemon-list");
   let listItem = $("<li></li>");
-  listItem.addClass('list-group-item-action');
-  listGroup.append(listItem);
+  // listItem.addClass('list-group-item-action');
+  // listGroup.append(listItem);
 
   let button = $('<button type="button" class="button-class" data-toggle= "modal"
   data-target= "#pokemonModal">' + pokemon.name + '</button>');
   button.addClass('btn btn-primary');
-  listItem.append(pokemon.name);
-  button.on('click', function() {
+  listPokemon.append(button);
+  pokemonList.append(listPokemon);
+  button.click (function(event) {
     showDetails(pokemon);
-  });
-
+  })
+}
 
 // load list function from apiUrl
 function loadList() {
