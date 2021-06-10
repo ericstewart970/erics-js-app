@@ -28,11 +28,11 @@ function addListItem(pokemon) {
   // listItem.addClass('list-group-item-action');
   // listGroup.append(listItem);
 
-  let button = $('<button type="button" class="button-class" data-toggle= "modal"
+  const button = $('<button type="button" class="button-class" data-toggle= "modal"
   data-target= "#pokemonModal">' + pokemon.name + '</button>');
   button.addClass('btn btn-primary');
-  listPokemon.append(button);
-  pokemonList.append(listPokemon);
+  listItem.append(button);
+  listGroup.append(listItem);
   button.click (function(event) {
     showDetails(pokemon);
   })
