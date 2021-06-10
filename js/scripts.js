@@ -74,35 +74,10 @@ function loadDetails(item) {
 //add showDetails function & creating showModal
 function showDetails(pokemon) {
   loadDetails(pokemon).then(function () {
-    // $(".modal-body").html('');
-    // $(".modal-title").html('');
+
     showModal(pokemon);
   });
 }
-
- /*  Modal
-
-  let modalContainer = document.querySelector('#modal-container');
-  // function showModal(pokemon) {
-  //   modalContainer.innerHTML = '';
-
-   let modal = document.createElement('div');
-     modal.classList.add('modal');
-
-     let closeButtonElement = document.createElement('button');
-     closeButtonElement.classList.add('modal-close');
-     closeButtonElement.innerText = 'Close';
-     closeButtonElement.addEventListener('click', hideModal);
-/*
-     let titleElement = document.createElement('h1')
-     titleElement.innerText = pokemon.name;
-
-     let contentElement = document.createElement('p');
-     contentElement.innerText = pokemon.height;
-
-     let imageElement = document.createElement('img');
-     imageElement.src = pokemon.imageUrl;
-*/
 
 
 function showModal(pokemon) {
@@ -118,56 +93,20 @@ function showModal(pokemon) {
   let imageElement = $('<img class="modal-img" style="width:50%">');
   imageElement.attr("src", pokemon.imageUrl);
   // creating height in modal content
-  let heightElement = $("<p>" + "height : " + pokemon.height + "</p>");
+  let heightElement = $("<p>" + "Height : " + pokemon.height + "</p>");
   // creating weight in modal content
-  let weightElement = $("<p>" + "weight : " + pokemon.weight + "</p>");
+  let weightElement = $("<p>" + "Weight : " + pokemon.weight + "</p>");
 
 modalTitle.append(nameElement);
 modalBody.append(imageElement);
 modalBody.append(heightElement);
 modalBody.append(weightElement);
 $('#pokemonModal').modal('toggle');
-
 }
-// $('[data-toggle="modal"]').on('click', function(){
-// let targetSelector = $(this).attr('data-target');
-// $(targetSelector).modal('show');
-// });
 
 
-     // modal.appendChild(closeButtonElement);
-     // modal.appendChild(titleElement);
-     // modal.appendChild(contentElement);
-     // modal.appendChild(imageElement);
-     // modalContainer.appendChild(modal);
 
-
-     // modalContainer.classList.add('is-visible');
-   // }
-
- // function hideModal() {
-   // modalContainer.classList.remove('is-visible');
- // }
-
-//calling the escape key to close
- // window.addEventListener('keydown', (e) => {
-   // if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
-     // hideModal();
-   // }
- // });
-
- // modalContainer.addEventListener('click', (e) => {
-   //triggered when clicking inside the modal
-   //want to close if user clickes directly on the overlay
-   // let target = e.target;
-   // if (target === modalContainer) {
-     // hideModal();
-   // }
- // });
-
-
- // addListItem
- //add loadList, loadDetails, & showDetails exercise 1.7
+ //calling a return, exercise 1.7
  return {
    add: add,
    getAll: getAll,
