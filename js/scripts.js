@@ -4,12 +4,11 @@ let pokemonRepository = (function () {
   let pokemonList = [];
   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
-
+  //"detailsUrl" in pokemon
   function add(pokemon) {
     if (
       typeof pokemon === "object" &&
       "name" in pokemon)
-      //"detailsUrl" in pokemon
 
      {
       pokemonList.push(pokemon);
@@ -28,11 +27,12 @@ function addListItem(pokemon) {
   // listItem.addClass('list-group-item-action');
   // listGroup.append(listItem);
 
-  const button = $('<button type="button" class="button-class" data-toggle= "modal"
-  data-target= "#pokemonModal">' + pokemon.name + '</button>');
+  const button = $('<button type="button" class="button-class" data-toggle="modal" data-target="pokemonModal">' + pokemon.name + '</button>');
+
   button.addClass('btn btn-primary');
   listItem.append(button);
   listGroup.append(listItem);
+
   button.click (function(event) {
     showDetails(pokemon);
   })
